@@ -3,6 +3,7 @@ import * as firebase from 'firebase/app';
 // import { resolve } from 'path';
 // import { reject } from 'q';
 import { AlertController } from '@ionic/angular';
+import { resolve, reject } from 'q';
 // import { verify } from 'crypto';
 
 @Injectable({
@@ -75,7 +76,16 @@ export class AuthenticationService {
       
     })
   }
-   
+  twitterLogin(){
+    return new Promise<any>((resolve,reject)=>{
+      firebase.auth().signInWithPopup(new firebase.auth.TwitterAuthProvider())
+      .then(
+        res=> resolve(res),
+        err =>reject(err)
+      )
+      
+    })
+  }
    logoutUser(){
     return new Promise((resolve, reject) => {
       if(firebase.auth().currentUser){

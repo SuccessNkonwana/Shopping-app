@@ -69,6 +69,7 @@ user: any;
       this.navCtrl.navigateForward('/edit');
     }, err => {
       this.errorMessage = err.message;
+      console.log(err);
     })
   }
   loginWithNumber(value){
@@ -89,6 +90,7 @@ user: any;
       this.navCtrl.navigateForward('/home');
     }, err => {
       this.errorMessage = err.message;
+      console.log(err);
     })
   }
   loginWithGoogle(value){
@@ -101,6 +103,7 @@ user: any;
 
       },err=>{
         this.errorMessage="danger", err.message;
+        console.log(err);
       }
     )
   }
@@ -114,6 +117,21 @@ user: any;
 
       },err=>{
         this.errorMessage="danger", err.message;
+        console.log(err);
+      }
+    )
+  }
+  twitterLogin(){
+    this.authService.twitterLogin()
+    .then(
+      res=>{
+        console.log(res);
+        this.errorMessage="success", "Successfully Logged In with Twitter";
+        this.navCtrl.navigateForward('/home');
+
+      },err=>{
+        this.errorMessage="danger", err.message;
+        console.log(err);
       }
     )
   }

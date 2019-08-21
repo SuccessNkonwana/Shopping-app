@@ -17,13 +17,7 @@ import * as firebase from 'firebase';
   import { environment } from 'src/environments/environment';
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyD9xkLKhAqTWzuwVMtphHJnrAepR92Vpmo",
-  authDomain: "shoppingapp-a7813.firebaseapp.com",
-  databaseURL: "https://shoppingapp-a7813.firebaseio.com",
-  projectId: "shoppingapp-a7813",
-  storageBucket: "shoppingapp-a7813.appspot.com",
-  messagingSenderId: "401464300289",
-  appId: "1:401464300289:web:ab12d2b21e7233e2"
+  
 };
 // Initialize Firebase
  firebase.initializeApp(firebaseConfig);
