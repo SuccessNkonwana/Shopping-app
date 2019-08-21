@@ -1,0 +1,87 @@
+<ion-header>
+  <ion-toolbar color="primary" style="text-align: center">
+    <ion-title>sign in</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<!-- <ion-content>
+  
+</ion-content> -->
+
+  <ion-content class="ion-padding">
+     
+      <form [formGroup]="validations_form" (ngSubmit)="loginUser(validations_form.value)">
+        <ion-item>
+          <ion-label  position="floating" color="primary">Email</ion-label>
+          <ion-input type="text" formControlName="email"></ion-input>
+        </ion-item>
+        <div class="validation-errors">
+          <ng-container *ngFor="let validation of validation_messages.email">
+            <div class="error-message" *ngIf="validations_form.get('email').hasError(validation.type) && (validations_form.get('email').dirty || validations_form.get('email').touched)">
+              {{ validation.message }}
+            </div>
+          </ng-container>
+        </div>
+        <ion-item>
+          <ion-label  position="floating" color="primary">Password</ion-label>
+          <ion-input type="password" formControlName="password" class="form-controll" required></ion-input>
+        </ion-item>
+        <div class="validation-errors">
+          <ng-container *ngFor="let validation of validation_messages.password">
+            <div class="error-message" *ngIf="validations_form.get('password').hasError(validation.type) && (validations_form.get('password').dirty || validations_form.get('password').touched)">
+              {{ validation.message }}
+            </div>
+          </ng-container>
+        </div>
+        <ion-button  class="submit-btn" type="submit"  [disabled]="!validations_form.valid">Log In</ion-button>
+ 
+        <label class="error-message">{{errorMessage}}</label>
+      </form>
+      -------------------------------------------------------------
+      <p class="go-to-register">
+        No account yet? <a (click)="goToRegisterPage()">Create an account.</a>
+      </p>  
+      <!-- loginWithGitHub -->
+      <!-- <ion-button (click)="loginWithGoogle(value)">sign in with google</ion-button> -->
+      <div class="icons">
+        <img src="assets/google.png" alt="google login"(click)="loginWithGoogle(value)">
+      </div>
+      <!-- <ion-button (click)="facebookLogin(value)">sign in with facebook</ion-button> -->
+      <div class="icons">
+        <img src="assets/facebook.png" alt="google login"(click)="facebookLogin(value)">
+      </div>
+      
+     
+<!-- for phone -->
+<div [hidden]="user">
+  
+  <label for="phone">Phone Number</label><br>
+  <ion-input [(ngModel)]="phoneNumber.country"placeholder="+27123456789" maxlength="12"></ion-input>
+
+  <div id="recaptcha-container"></div>
+  <ion-button (click)="sendLoginCode()">SMS Text Login Code</ion-button>
+
+  <div *ngIf="windowRef.confirmationResult">
+    <hr>
+    <ion-label for="code">Enter your Verification Code Here</ion-label><br>
+    <ion-input type="text" name="code" [(ngModel)]="verificationCode"></ion-input>
+
+    <ion-button (click)="verifyLoginCode()">Verify</ion-button>
+  </div>
+
+</div>
+
+      <p class="go-to-register">
+        Forgoten password?
+        <ion-item>
+          <ion-label  position="floating" color="primary">Email</ion-label>
+          <ion-input [(ngModel)]="resetEmail"></ion-input>
+        </ion-item>
+        <ion-button (click)="reset(resetEmail)">Reset password.</ion-button>
+      </p> 
+    
+      
+    </ion-content>
+ 
+ 
+ 

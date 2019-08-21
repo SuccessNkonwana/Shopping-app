@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>edit</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+   <!-- <ion-input >{{name}}</ion-input>
+   <ion-input >{{price}}</ion-input>
+   <ion-input >{{type}}</ion-input>
+   <ion-input >{{key}}</ion-input> -->
+   <ion-item>
+     <ion-label> name:</ion-label>
+     <ion-input [(ngModel)]="objectA.name"></ion-input>
+   </ion-item>
+   <ion-item>
+      <ion-label>  price:</ion-label>
+      <ion-input [(ngModel)]="objectA.price"></ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-label>type:</ion-label>
+        <ion-input [(ngModel)]="objectA.type"></ion-input>
+      </ion-item>
+  
+  
+  <ion-button (click)="update(objectA,objectA.key)">Update</ion-button><br>
+  <ion-button (click)="delete(objectA.key)">delete</ion-button> 
+</ion-content>
